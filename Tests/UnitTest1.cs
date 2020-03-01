@@ -12,7 +12,7 @@ namespace Tests
         [Test]
         public void Test1()
         {
-            Assert.AreEqual (143, App.Program.SomeMethod());
+            Assert.AreEqual (123, Vocab3000.Program.SomeMethod());
         }
     }
 }
