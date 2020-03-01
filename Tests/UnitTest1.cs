@@ -8,11 +8,5 @@ namespace Tests
         public void Setup()
         {
         }
-
-        [Test]
-        public void Test1()
-        {
-            Assert.AreEqual (123, Vocab3000.Program.SomeMethod());
-        }
     }
 }

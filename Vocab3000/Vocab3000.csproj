@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <Target Name="CopyCustomContent" AfterTargets="AfterBuild">
-    <Copy SourceFiles="res/test.txt" DestinationFolder="$(OutDir)/res" />
+    <Copy SourceFiles="res/vocabs.ini" DestinationFolder="$(OutDir)/res" />
   </Target>
   <Target Name="CopyCustomContentOnPublish" AfterTargets="Publish">
-    <Copy SourceFiles="res/test.txt" DestinationFolder="$(PublishDir)/res" />
+    <Copy SourceFiles="res/vocabs.ini" DestinationFolder="$(PublishDir)/res" />
   </Target>
 </Project>
