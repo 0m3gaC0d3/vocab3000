@@ -19,8 +19,9 @@ namespace Vocab3000.Exam
 
         public void Run()
         {
-            _ui.Initialize();
+            _ui.Initialize(_resultCalculator);
             var vocabs = RandomizeAndTrimVocabs();
+            // TODO add iterator
             foreach (Vocab vocab in vocabs)
             {
                 HandleCurrentVocab(vocab);
@@ -37,7 +38,7 @@ namespace Vocab3000.Exam
                 throw new Exception("Vocabs for exam must be fewer or equal the overall vocab count");
             }
             var randomVocabs = new List<Vocab>();
-            Random rnd = new Random();
+            Random rnd = Vocab3000.Static.Random;
             for (int i = 0; i < vocabCountPerExam; ++i)
             {
                 int randomIndex = rnd.Next(allVocabs.Count);
@@ -55,7 +56,7 @@ namespace Vocab3000.Exam
         private void HandleCurrentVocab(Vocab vocab)
         {
             _ui.HandleCurrentVocab(vocab);
-            if (_answerValidator.Validate(vocab, _ui.GetUserInput()))
+            if (_answerValidator.Validate(vocab, _ui.GetUserInput(vocab)))
             {
                 _resultCalculator.increaseCorrectAnswersByOne();
             }

@@ -10,7 +10,7 @@ namespace Vocab3000
     {
         static void Main(string[] args)
         {
-            var vocabCountPerExam = 3; // TODO: Get this by user input
+            var vocabCountPerExam = 10; // TODO: Get this by user input
             var handlerBuilder = new ExamHandlerBuilder();
             handlerBuilder.SetAnswerValidator(new StrictAnswerValidator())
                 .SetResultCalculator(new ExamResultCalculator(vocabCountPerExam))

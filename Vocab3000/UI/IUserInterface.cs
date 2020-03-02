@@ -5,9 +5,9 @@ namespace Vocab3000.UI
 {
     public interface IUserInterface
     {
-        void Initialize();
+        void Initialize(ExamResultCalculator resultCalculator);
 
-        string GetUserInput();
+        string GetUserInput(Vocab vocab);
 
         void HandleCurrentVocab(Vocab vocab);
 
