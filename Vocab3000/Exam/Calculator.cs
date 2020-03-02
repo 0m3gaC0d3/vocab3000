@@ -1,6 +1,6 @@
 namespace Vocab3000.Exam
 {
-    public class ExamResultCalculator
+    public class Calculator
     {
         private int _vocabCount;
 
@@ -8,7 +8,7 @@ namespace Vocab3000.Exam
 
         private int _wrongAnswers;
 
-        public ExamResultCalculator(int vocabCount)
+        public Calculator(int vocabCount)
         {
             _vocabCount = vocabCount;
         }
@@ -29,11 +29,6 @@ namespace Vocab3000.Exam
         public void increaseWrongAnswersByOne()
         {
             ++_wrongAnswers;
-        }
-
-        public int GetVocabCount()
-        {
-            return _vocabCount;
         }
     }
 }

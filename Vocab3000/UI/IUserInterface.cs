@@ -1,16 +1,17 @@
-using Vocab3000.Model;
 using Vocab3000.Exam;
 
 namespace Vocab3000.UI
 {
     public interface IUserInterface
     {
-        void Initialize(ExamResultCalculator resultCalculator);
+        void Start();
 
-        string GetUserInput(Vocab vocab);
+        int GetSettingsIndex();
 
-        void HandleCurrentVocab(Vocab vocab);
+        string GetUserInput(Iterator iterator);
 
-        void Quit(ExamResultCalculator resultCalculator);
+        void HandleCurrent(Iterator iterator);
+
+        void Quit(Calculator calculator);
     }
 }

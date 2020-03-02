@@ -9,31 +9,31 @@ namespace Vocab3000.UI
 {
     public class ConsoleUserInterface : IUserInterface
     {
-        public string GetUserInput(Vocab vocab)
+        public string GetUserInput(Iterator iterator)
         {
+            var vocab = (Vocab) iterator.Current;
             var input = Console.ReadLine();
             while("?" == input) {
                 Console.WriteLine("[HELP] ("+GenerateHelpString(vocab.Target)+")");
-                HandleCurrentVocab(vocab);
+                HandleCurrent(iterator);
                 input = Console.ReadLine();
             }
             ConsoleUtility.WriteForgroundColoredLine("\t("+vocab.Target+")", ConsoleColor.Blue);
             return input;
         }
 
-        public void Initialize(ExamResultCalculator resultCalculator)
+        public void Start()
         {
             Console.WriteLine("==========================");
             Console.WriteLine("Welcome to Vocab3000");
             Console.WriteLine("");
-            Console.WriteLine("Starting a new exam with "+resultCalculator.GetVocabCount().ToString()+" vocabs.");
             Console.WriteLine("[Hint] Enter '?' if you need help");
             Console.WriteLine("--------------------------");
         }
 
-        public void Quit(ExamResultCalculator resultCalculator)
+        public void Quit(Calculator calculator)
         {
-            var result = Math.Round(resultCalculator.GetCorrectAnswersInPercent());
+            var result = Math.Round(calculator.GetCorrectAnswersInPercent());
             Console.WriteLine("--------------------------");
             Console.WriteLine("Exam is over");
             Console.WriteLine("You result is: "+result.ToString()+"%");
@@ -42,8 +42,9 @@ namespace Vocab3000.UI
             Console.ReadKey();
         }
 
-        public void HandleCurrentVocab(Vocab vocab)
+        public void HandleCurrent(Iterator iterator)
         {
+            var vocab = (Vocab) iterator.Current;
             Console.Write("[");
             ConsoleUtility.WriteForgroundColored(vocab.Soruce, ConsoleColor.Yellow);
             Console.Write("] = ");
@@ -63,5 +64,10 @@ namespace Vocab3000.UI
             return strBuilder.ToString();
         }
 
+        public int GetSettingsIndex()
+        {
+            // TODO change me
+            return 1;
+        }
     }
 }
