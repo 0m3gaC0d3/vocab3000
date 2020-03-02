@@ -38,6 +38,8 @@ namespace Vocab3000.UI
             Console.WriteLine("Exam is over");
             Console.WriteLine("You result is: "+result.ToString()+"%");
             Console.WriteLine("==========================");
+            Console.WriteLine("\n\nTo close the application hit any key...");
+            Console.ReadKey();
         }
 
         public void HandleCurrentVocab(Vocab vocab)
