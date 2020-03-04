@@ -26,5 +26,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v1
         with:
-          name: Vocab3000
-          path: ${{ github.workspace }}/Vocab3000/bin/Release/netcoreapp3.1
+          name: Vocab3000.exe
+          path: ${{ github.workspace }}/Vocab3000/bin/Release/netcoreapp3.1/publish
