@@ -18,6 +18,8 @@ jobs:
           dotnet-version: 3.1.101
       - name: Build
         run: dotnet build --configuration Release
+      - name: Test
+        run: dotnet test
       - name: Publish
         run: |
           dotnet publish Vocab3000 -c Release -o Vocab3000
@@ -25,4 +27,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: Vocab3000
-          path: ${{ github.workspace }}/vocab3000/Vocab3000/bin/Release/netcoreapp3.1
+          path: ${{ github.workspace }}/Vocab3000/bin/Release/netcoreapp3.1
