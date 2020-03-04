@@ -22,7 +22,7 @@ jobs:
         run: dotnet test
       - name: Publish
         run: |
-          dotnet publish Vocab3000 -c Release -o Vocab3000
+          dotnet publish Vocab3000 -c Release
       - name: Upload artifact
         uses: actions/upload-artifact@v1
         with:
