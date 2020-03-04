@@ -16,12 +16,13 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.101
-      - name: Build with dotnet
+      - name: Build
         run: dotnet build --configuration Release
-      - name: dotnet publish
+      - name: Publish
+        run: |
+          dotnet publish Vocab3000 -c Release -o Vocab3000
+      - name: Upload artifact
         uses: actions/upload-artifact@v1
         with:
           name: Vocab3000
-          path: ${{ github.workspace }}/.output/Vocab3000
-        run: |
-          dotnet publish Vocab3000 -c Release -o Vocab3000
+          path: ${{ github.workspace }}/vocab3000/Vocab3000/bin/Release/netcoreapp3.1
