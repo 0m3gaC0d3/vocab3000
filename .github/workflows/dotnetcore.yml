@@ -21,4 +21,4 @@ jobs:
       run: dotnet build --configuration Release
     - name: dotnet publish
       run: |
-        dotnet publish -c Release -o dotnetcorewebapp 
+        dotnet publish Vocab3000 -c Release -o Vocab3000
