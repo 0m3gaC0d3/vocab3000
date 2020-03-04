@@ -3,6 +3,8 @@ using Vocab3000.UI;
 using Vocab3000.Exam;
 using Vocab3000.Validator;
 using Vocab3000.Factory;
+using IniParser;
+using Vocab3000.Extension;
 
 namespace Vocab3000
 {
@@ -11,7 +13,8 @@ namespace Vocab3000
         static void Main(string[] args)
         {
             var validator = new StrictAnswerValidator();
-            var vocabProvider = new IniFileVocabDataProvider();
+            var parser = new FileIniDataParserExtension(new FileIniDataParser());
+            var vocabProvider = new IniFileVocabDataProvider(parser);
             var ui = new ConsoleUserInterface();
             ui.Start();
             var settingsIndex = ui.GetSettingsIndex();

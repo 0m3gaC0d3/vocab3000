@@ -3,12 +3,20 @@ using System.Text;
 using Vocab3000.Model;
 using IniParser;
 using IniParser.Model;
+using Vocab3000.Extension;
 
 namespace Vocab3000.Provider
 {
     public class IniFileVocabDataProvider : IVocabDataProvider
     {
         private const string RelativeFilePath = "res/vocabs.ini";
+
+        private IFileIniDataParser _parser;
+
+        public IniFileVocabDataProvider(IFileIniDataParser parser)
+        {
+            _parser = parser;
+        }
 
         public List<Vocab> GetVocabs()
         {
@@ -35,8 +43,7 @@ namespace Vocab3000.Provider
 
         private IniData ReadFromIniFile()
         {
-            var parser = new FileIniDataParser();
-            IniData data = parser.ReadFile(RelativeFilePath, Encoding.UTF8);
+            IniData data = _parser.ReadFile(RelativeFilePath, Encoding.UTF8);
             return data;
         }
     }

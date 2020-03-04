@@ -1,3 +1,5 @@
+using System;
+
 namespace Vocab3000.Exam
 {
     public class Calculator
@@ -13,12 +15,13 @@ namespace Vocab3000.Exam
             _vocabCount = vocabCount;
         }
 
-        public float GetCorrectAnswersInPercent()
+        public double GetCorrectAnswersInPercent()
         {
             var leftVocabs = _vocabCount - (_correctAnswers + _wrongAnswers);
             _wrongAnswers += leftVocabs;
+            var result = (100f / (float) _vocabCount) * (float) _correctAnswers;
 
-            return (100f / (float) _vocabCount) * (float) _correctAnswers;
+            return Math.Round(result, 2, MidpointRounding.AwayFromZero);
         }
 
         public void increaseCorrectAnswersByOne()
