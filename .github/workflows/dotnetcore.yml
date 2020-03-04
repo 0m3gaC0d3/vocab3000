@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Setup .NET Core
@@ -20,11 +19,3 @@ jobs:
         run: dotnet build --configuration Release
       - name: Test
         run: dotnet test
-      - name: Publish
-        run: |
-          dotnet publish Vocab3000 -c Release
-      - name: Upload artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: Vocab3000.exe
-          path: ${{ github.workspace }}/Vocab3000/bin/Release/netcoreapp3.1/publish
