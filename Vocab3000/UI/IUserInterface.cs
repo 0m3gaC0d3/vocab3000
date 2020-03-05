@@ -1,4 +1,5 @@
 using Vocab3000.Exam;
+using Vocab3000.Factory;
 
 namespace Vocab3000.UI
 {
@@ -6,7 +7,7 @@ namespace Vocab3000.UI
     {
         void Start();
 
-        int GetSettingsIndex();
+        ExamSettingsFactory.SettingTypes GetSettingsIndex();
 
         string GetUserInput(Iterator iterator);
 

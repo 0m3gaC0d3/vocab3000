@@ -1,15 +1,15 @@
 namespace Vocab3000.Exam.Settings
 {
-    public class DefaultSettings : ISettings
+    public class TestSettings : ISettings
     {
         public int GetVocabCount()
         {
-            return 10;
+            return 30;
         }
 
         public bool HelpIsAllowed()
         {
-            return true;
+            return false;
         }
     }
 }

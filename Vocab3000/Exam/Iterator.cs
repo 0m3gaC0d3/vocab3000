@@ -27,6 +27,9 @@ namespace Vocab3000.Exam
         private Vocab[] LoadVocabs(List<Vocab> allVocabs)
         {
             var vocabCountPerExam = _settings.GetVocabCount();
+            if (vocabCountPerExam == ISettings.ALL_VOCABS) {
+                return allVocabs.ToArray();
+            }
             if (vocabCountPerExam > allVocabs.Count)
             {
                 throw new Exception("Vocabs for exam must be fewer or equal the overall vocab count");

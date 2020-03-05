@@ -19,8 +19,8 @@ namespace Vocab3000
             ui.Start();
             var settingsIndex = ui.GetSettingsIndex();
             var settings = ExamSettingsFactory.Build((ExamSettingsFactory.SettingTypes)settingsIndex);
-            var calculator = new Calculator(settings.GetVocabCount());
             var iterator = new Iterator(settings, vocabProvider);
+            var calculator = new Calculator(iterator.Count());
             var handler = new Handler(ui, settings, iterator, calculator, validator);
             handler.Run();
             ui.Quit(calculator);

@@ -2,6 +2,10 @@ namespace Vocab3000.Exam.Settings
 {
     public interface ISettings
     {
-         int GetVocabCount();
+        const int ALL_VOCABS = -1;
+
+        int GetVocabCount();
+
+        bool HelpIsAllowed();
     }
 }
