@@ -1,10 +1,10 @@
 namespace Vocab3000.Exam.Settings
 {
-    public class DefaultSettings : ISettings
+    public class FreeSettings : ISettings
     {
         public int GetVocabCount()
         {
-            return 10;
+            return ISettings.ALL_VOCABS;
         }
 
         public bool HelpIsAllowed()
