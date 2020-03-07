@@ -14,5 +14,7 @@ namespace Vocab3000.UI
         void HandleCurrent(Iterator iterator);
 
         void Quit(Calculator calculator);
+
+        int GetUsedHelpAmount();
     }
 }
