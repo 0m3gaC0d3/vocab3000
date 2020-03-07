@@ -10,12 +10,15 @@ namespace Vocab3000.UI
 {
     public class ConsoleUserInterface : IUserInterface
     {
+        private int _usedHelp;
+
         public string GetUserInput(Iterator iterator)
         {
             var vocab = (Vocab)iterator.Current;
             var input = Console.ReadLine();
             while ("?" == input)
             {
+                ++_usedHelp;
                 Console.WriteLine("[HELP] (" + GenerateHelpString(vocab.Target) + ")");
                 HandleCurrent(iterator);
                 input = Console.ReadLine();
@@ -42,8 +45,8 @@ namespace Vocab3000.UI
         {
             var result = Math.Round(calculator.GetCorrectAnswersInPercent());
             Console.WriteLine("---------------------------------------------");
-            Console.WriteLine("Exam is over");
-            Console.WriteLine("You result is: " + result.ToString() + "%");
+            Console.WriteLine("Exam is over "+"(used help: "+_usedHelp.ToString()+")");
+            Console.WriteLine("You result is: " + GetUsedHelpAmount().ToString() + "%");
             Console.WriteLine("=============================================");
             Console.WriteLine("\n\nTo close the application hit any key...");
             Console.ReadKey();
@@ -106,6 +109,11 @@ namespace Vocab3000.UI
             ConsoleUtility.WriteForgroundColoredLine("Exam starts now!", ConsoleColor.Yellow);
             Console.WriteLine("---------------------------------------------");
             return type;
+        }
+
+        public int GetUsedHelpAmount()
+        {
+            return _usedHelp;
         }
     }
 }
