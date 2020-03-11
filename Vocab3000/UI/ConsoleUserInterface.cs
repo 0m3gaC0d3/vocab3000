@@ -29,6 +29,7 @@ namespace Vocab3000.UI
 
         public void Start()
         {
+            Console.Clear();
             var banner = @"
 \    / __   __   .    __   __   __   __   __ 
  \  / |  | |    /_\  |__)  __| |  | |  | |  |
@@ -45,8 +46,13 @@ namespace Vocab3000.UI
         {
             var result = Math.Round(calculator.GetCorrectAnswersInPercent());
             Console.WriteLine("---------------------------------------------");
-            Console.WriteLine("Exam is over "+"(used help: "+_usedHelp.ToString()+")");
-            Console.WriteLine("You result is: " + GetUsedHelpAmount().ToString() + "%");
+            Console.WriteLine("Exam is over (used help: {0})", GetUsedHelpAmount());
+            Console.WriteLine("You result is: {0}%", calculator.GetCorrectAnswersInPercent());
+            Console.WriteLine(
+                "Right answers: {0} | Wrong answers: {1}",
+                calculator.GetCorrectAnswerCount(),
+                calculator.GetWrongAnswerCount()
+            );
             Console.WriteLine("=============================================");
             Console.WriteLine("\n\nTo close the application hit any key...");
             Console.ReadKey();
@@ -105,6 +111,7 @@ namespace Vocab3000.UI
                     );
                     return GetSettingsIndex();
             }
+            Console.Clear();
             Console.WriteLine("---------------------------------------------");
             ConsoleUtility.WriteForgroundColoredLine("Exam starts now!", ConsoleColor.Yellow);
             Console.WriteLine("---------------------------------------------");
