@@ -33,5 +33,15 @@ namespace Vocab3000.Exam
         {
             ++_wrongAnswers;
         }
+
+        public int GetCorrectAnswerCount()
+        {
+            return _correctAnswers;
+        }
+
+        public int GetWrongAnswerCount()
+        {
+            return _wrongAnswers;
+        }
     }
 }
